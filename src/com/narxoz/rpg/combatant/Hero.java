@@ -54,8 +54,8 @@ public class Hero {
     }
 
     public void takeDamage(int amount) {
-        int finalDamage = Math.max(0, state.modifyIncomingDamage(amount - defense));
-        finalDamage = Math.max(1, finalDamage);
+        int rawDamage = Math.max(1, amount - defense);
+        int finalDamage = Math.max(1, state.modifyIncomingDamage(rawDamage));
         hp = Math.max(0, hp - finalDamage);
         System.out.println(name + " takes " + finalDamage + " damage. HP: " + hp + "/" + maxHp);
     }
